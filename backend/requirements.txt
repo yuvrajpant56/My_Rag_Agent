@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-dotenv
+anthropic
+qdrant-client
+sentence-transformers
+langchain
+langchain-anthropic
+langchain-community
+sse-starlette # For streaming responses
+langchain-qdrant
+langchain-huggingface
+huggingface-hub

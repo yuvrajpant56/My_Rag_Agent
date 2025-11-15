@@ -1,0 +1,36 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - qdrant
+    # The 'command' was removed to let the Dockerfile's CMD run correctly.
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost:8000
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    # The conflicting 'command' keys were removed.
+
+volumes:
+  qdrant_storage:
