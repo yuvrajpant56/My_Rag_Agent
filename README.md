@@ -17,11 +17,11 @@ Orchestration: Docker & Docker Compose
 ## 🏗️ Architecture
 This project runs entirely on Docker and is composed of three services defined in docker-compose.yml:
 
-# frontend: A Next.js application that serves the chat interface at http://localhost:3000.
+frontend: A Next.js application that serves the chat interface at http://localhost:3000.
 
-# backend: A FastAPI server that provides the API at http://localhost:8000. It handles both ingestion and chat logic.
+backend: A FastAPI server that provides the API at http://localhost:8000. It handles both ingestion and chat logic.
 
-# qdrant: The Qdrant vector database instance, which stores the document embeddings and is accessible to the backend.
+qdrant: The Qdrant vector database instance, which stores the document embeddings and is accessible to the backend.
 
 ## ⚙️ How it Works
 The application has two primary workflows:
