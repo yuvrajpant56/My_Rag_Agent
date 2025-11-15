@@ -82,18 +82,18 @@ Create a file at backend/.env. Copy the contents of backend/.env.example (or the
 
 Ini, TOML
 
-# --- Anthropic (Generation Model) ---
-# Get your key from https://console.anthropic.com/
+--- Anthropic (Generation Model) ---
+Get your key from https://console.anthropic.com/
 ANTHROPIC_API_KEY=sk-ant-api03-xxxxxxxxxxxxxxxxxxxx
 ANTHROPIC_MODEL=claude-3-haiku-20240307
 
-# --- Qdrant (Vector Database) ---
-# This URL works because Docker Compose creates a network where 
-# the service name 'qdrant' is a valid hostname.
+--- Qdrant (Vector Database) ---
+This URL works because Docker Compose creates a network where 
+the service name 'qdrant' is a valid hostname.
 QDRANT_URL=http://qdrant:6333
 QDRANT_COLLECTION_NAME=my_knowledge_base
 
-# --- Embeddings (Hugging Face) ---
+--- Embeddings (Hugging Face) ---
 EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
 B. Frontend Configuration
 Create a file at frontend/.env.local. Add the following line to tell the frontend where to find the backend API.
