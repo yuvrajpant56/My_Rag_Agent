@@ -109,5 +109,6 @@ With your configuration files in place, you can build and run the entire applica
 Bash
 
 docker compose up --build
+
 4. Use the Application
 Open the web interface: http://localhost:3000
