@@ -1,10 +1,10 @@
-Agentic RAG Chatbot
+##Agentic RAG Chatbot
 
 This is a full-stack, dockerized RAG (Retrieval-Augmented Generation) chatbot application. It uses a Next.js frontend, a FastAPI backend, and a Qdrant vector database to allow users to "chat with their documents."
 
 The application allows users to first ingest text-based knowledge into a vector database. Then, they can ask questions, and the backend will retrieve the most relevant context from the database to provide an accurate, in-context answer from an Anthropic (Claude) LLM.
 
-Tech Stack
+#Tech Stack
 
 Frontend: Next.js, React, TypeScript, Tailwind CSS
 
@@ -16,7 +16,7 @@ Database: Qdrant (Vector Database)
 
 Orchestration: Docker & Docker Compose
 
-Architecture
+##Architecture
 
 This project runs entirely on Docker and is composed of three services defined in docker-compose.yml:
 
@@ -26,11 +26,11 @@ backend: A FastAPI server that provides the API at http://localhost:8000. It han
 
 qdrant: The Qdrant vector database instance, which stores the document embeddings and is accessible to the backend.
 
-How it Works
+##How it Works
 
 The application has two primary workflows:
 
-1. Ingestion Flow
+#1. Ingestion Flow
 
 User pastes text into the "Add Knowledge" form in the UI.
 
@@ -48,7 +48,7 @@ Generates a unique ID (uuid) for each chunk.
 
 Saves the {id, vector, payload} triplets into the Qdrant database.
 
-2. RAG Chat Flow
+#2. RAG Chat Flow
 
 User asks a question in the chatbox (e.g., "What is FastAPI?").
 
@@ -90,17 +90,17 @@ Create a file at backend/.env.
 
 Copy the contents of backend/.env.example (or the content below) into it.
 
-Add your secret Anthropic API Key.
+#Add your secret Anthropic API Key.
 
 File: backend/.env
 
-# --- Anthropic (Generation Model) ---
-# Get your key from [https://console.anthropic.com/](https://console.anthropic.com/)
+#--- Anthropic (Generation Model) ---
+Get your key from [https://console.anthropic.com/](https://console.anthropic.com/)
 ANTHROPIC_API_KEY=sk-ant-api03-xxxxxxxxxxxxxxxxxxxx
 ANTHROPIC_MODEL=claude-3-haiku-20240307
 
-# --- Qdrant (Vector Database) ---
-# This URL works because Docker Compose creates a network where 
+--- Qdrant (Vector Database) ---
+This URL works because Docker Compose creates a network where 
 # the service name 'qdrant' is a valid hostname.
 QDRANT_URL=http://qdrant:6333
 QDRANT_COLLECTION_NAME=my_knowledge_base
