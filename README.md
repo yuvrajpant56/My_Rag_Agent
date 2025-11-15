@@ -1,4 +1,4 @@
-Agentic RAG Chatbot
+##Agentic RAG Chatbot
 This is a full-stack, dockerized RAG (Retrieval-Augmented Generation) chatbot application. It uses a Next.js frontend, a FastAPI backend, and a Qdrant vector database to allow users to "chat with their documents."
 
 The application allows users to first ingest text-based knowledge into a vector database. Then, they can ask questions, and the backend will retrieve the most relevant context from the database to provide an accurate, in-context answer from an Anthropic (Claude) LLM.
