@@ -1,9 +1,9 @@
-##Agentic RAG Chatbot
+## Agentic RAG Chatbot
 This is a full-stack, dockerized RAG (Retrieval-Augmented Generation) chatbot application. It uses a Next.js frontend, a FastAPI backend, and a Qdrant vector database to allow users to "chat with their documents."
 
 The application allows users to first ingest text-based knowledge into a vector database. Then, they can ask questions, and the backend will retrieve the most relevant context from the database to provide an accurate, in-context answer from an Anthropic (Claude) LLM.
 
-🚀 Tech Stack
+## 🚀 Tech Stack
 Frontend: Next.js, React, TypeScript, Tailwind CSS
 
 Backend: FastAPI, Python, LangChain
@@ -14,16 +14,16 @@ Database: Qdrant (Vector Database)
 
 Orchestration: Docker & Docker Compose
 
-🏗️ Architecture
+## 🏗️ Architecture
 This project runs entirely on Docker and is composed of three services defined in docker-compose.yml:
 
-frontend: A Next.js application that serves the chat interface at http://localhost:3000.
+# frontend: A Next.js application that serves the chat interface at http://localhost:3000.
 
-backend: A FastAPI server that provides the API at http://localhost:8000. It handles both ingestion and chat logic.
+# backend: A FastAPI server that provides the API at http://localhost:8000. It handles both ingestion and chat logic.
 
-qdrant: The Qdrant vector database instance, which stores the document embeddings and is accessible to the backend.
+# qdrant: The Qdrant vector database instance, which stores the document embeddings and is accessible to the backend.
 
-⚙️ How it Works
+## ⚙️ How it Works
 The application has two primary workflows:
 
 1. Ingestion Flow
@@ -43,7 +43,7 @@ Generates a unique ID (uuid) for each chunk.
 
 Saves the {id, vector, payload} triplets into the Qdrant database.
 
-2. RAG Chat Flow
+## 2. RAG Chat Flow
 User asks a question in the chatbox (e.g., "What is FastAPI?").
 
 Frontend sends the question to the backend's /api/chat endpoint.
@@ -64,7 +64,7 @@ The Backend streams this answer back to the Frontend as it's generated.
 
 Frontend parses the Server-Sent Events (SSE) stream and displays the answer word-by-word.
 
-🏁 Getting Started
+### 🏁 Getting Started
 Follow these steps to set up and run the project locally.
 
 1. Prerequisites
@@ -78,7 +78,7 @@ You must create two environment files (.env) to store your secret keys and confi
 A. Backend Configuration
 Create a file at backend/.env. Copy the contents of backend/.env.example (or the content below) into it.
 
-File: backend/.env
+## File: backend/.env
 
 Ini, TOML
 
@@ -98,7 +98,7 @@ EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
 B. Frontend Configuration
 Create a file at frontend/.env.local. Add the following line to tell the frontend where to find the backend API.
 
-File: frontend/.env.local
+## File: frontend/.env.local
 
 Ini, TOML
 
